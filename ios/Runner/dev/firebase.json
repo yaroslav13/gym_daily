@@ -1,0 +1,30 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "gym-daily-dev",
+          "appId": "1:6018944932:android:25264a32ae74696ff83b31",
+          "fileOutput": "android/app/dev/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "gym-daily-dev",
+          "appId": "1:6018944932:ios:2f47643baa665767f83b31",
+          "uploadDebugSymbols": true,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "gym-daily-dev",
+          "configurations": {
+            "android": "1:6018944932:android:25264a32ae74696ff83b31",
+            "ios": "1:6018944932:ios:2f47643baa665767f83b31"
+          }
+        }
+      }
+    }
+  }
+}

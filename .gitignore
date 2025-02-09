@@ -121,3 +121,4 @@ secrets.dart
 
 # FVM Version Cache
 custom_lint.log
+/firebase.json
