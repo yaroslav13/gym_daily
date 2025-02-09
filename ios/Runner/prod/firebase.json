@@ -5,7 +5,7 @@
         "default": {
           "projectId": "gym-daily",
           "appId": "1:514531693331:android:54c8b2c6d7dc08a15640e6",
-          "fileOutput": "android/app/google-services.json"
+          "fileOutput": "android/app/prod/google-services.json"
         }
       },
       "ios": {

@@ -64,6 +64,18 @@ android {
         }
     }
 
+    flavorDimensions = ["default"]
+
+    productFlavors {
+        prod {
+            dimension = "default"
+        }
+        dev {
+            dimension = "default"
+            applicationIdSuffix = ".dev"
+        }
+    }
+
     buildTypes {
         release {
             signingConfig = signingConfigs.release
