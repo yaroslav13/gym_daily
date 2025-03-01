@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gym_daily/src/features/extensions/theme_extension.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'package:ui_components/ui_components.dart';
 
 final class HomeScreen extends HookConsumerWidget {
   const HomeScreen({super.key});
@@ -16,16 +17,12 @@ final class HomeScreen extends HookConsumerWidget {
         child: Column(
           children: [
             Expanded(
-              child: SfDateRangePicker(
-                headerHeight: appBarHeight,
-                initialSelectedDate: DateTime.now(),
-                headerStyle: DateRangePickerHeaderStyle(
-                  backgroundColor: context.colorScheme.surface,
+              child: ValueSelector(
+                onChanged: (value) {},
+                items: List.generate(
+                  20,
+                  (i) => i++,
                 ),
-                todayHighlightColor: context.colorScheme.primary,
-                backgroundColor: context.colorScheme.surface,
-                selectionColor: context.colorScheme.primary,
-                selectionShape: DateRangePickerSelectionShape.rectangle,
               ),
             ),
 
