@@ -9,7 +9,7 @@ class ValueSelectorDemo extends StatelessWidget {
     return Center(
       child: ValueSelector<int>(
         onChanged: (value) {},
-        items: List.generate(100, (i) => i++),
+        items: List.generate(225, (i) => 35+i++),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_daily/src/entities/auth/authentication_status.dart';
+import 'package:gym_daily/src/features/splash/gradient_background.dart';
 import 'package:gym_daily/src/navigation/routes/routes.dart';
 import 'package:gym_daily/src/providers/auth/authentication_state_provider.dart';
 import 'package:gym_daily/src/resources/assets.gen.dart';
@@ -25,21 +26,27 @@ final class SplashScreen extends HookConsumerWidget {
       /// TODO: ananymous sign in
     }
 
-    const HomeRoute().go(context);
+    //const HomeRoute().go(context);
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: Center(
-        child: Lottie.asset(
-          Assets.lotties.workout,
-          onLoaded: (composition) => _onWorkoutLottieLoaded(
-            context,
-            composition,
-            ref.read(authenticationStateProvider),
+      body: Stack(
+        children: [
+          const GradientBackgroundWidget(),
+
+          Center(
+            child: Lottie.asset(
+              Assets.lotties.workout,
+              onLoaded: (composition) => _onWorkoutLottieLoaded(
+                context,
+                composition,
+                ref.read(authenticationStateProvider),
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
