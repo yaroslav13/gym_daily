@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gym_daily/src/features/extensions/theme_extension.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'package:ui_components/theme/theme_shortcuts_extension.dart';
 
 final class HomeScreen extends HookConsumerWidget {
   const HomeScreen({super.key});
@@ -20,11 +20,11 @@ final class HomeScreen extends HookConsumerWidget {
                 headerHeight: appBarHeight,
                 initialSelectedDate: DateTime.now(),
                 headerStyle: DateRangePickerHeaderStyle(
-                  backgroundColor: context.colorScheme.surface,
+                  backgroundColor: context.materialColorScheme.surface,
                 ),
-                todayHighlightColor: context.colorScheme.primary,
-                backgroundColor: context.colorScheme.surface,
-                selectionColor: context.colorScheme.primary,
+                todayHighlightColor: context.materialColorScheme.primary,
+                backgroundColor: context.materialColorScheme.surface,
+                selectionColor: context.materialColorScheme.primary,
                 selectionShape: DateRangePickerSelectionShape.rectangle,
               ),
             ),
@@ -32,7 +32,7 @@ final class HomeScreen extends HookConsumerWidget {
             /// TODO: replace by the list of trainings
             Expanded(
               child: Container(
-                color: context.colorScheme.surface,
+                color: context.materialColorScheme.surface,
                 height: double.infinity,
               ),
             ),
