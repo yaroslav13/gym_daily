@@ -13,8 +13,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/dumbbell.svg
   String get dumbbell => 'assets/images/dumbbell.svg';
 
+  /// File path: assets/images/logo.svg
+  String get logo => 'assets/images/logo.svg';
+
+  /// File path: assets/images/pilot.svg
+  String get pilot => 'assets/images/pilot.svg';
+
   /// List of all assets
-  List<String> get values => [dumbbell];
+  List<String> get values => [dumbbell, logo, pilot];
 }
 
 class $AssetsLottiesGen {
@@ -27,9 +33,20 @@ class $AssetsLottiesGen {
   List<String> get values => [workout];
 }
 
+class $AssetsShadersGen {
+  const $AssetsShadersGen();
+
+  /// File path: assets/shaders/gradient_background.frag
+  String get gradientBackground => 'assets/shaders/gradient_background.frag';
+
+  /// List of all assets
+  List<String> get values => [gradientBackground];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLottiesGen lotties = $AssetsLottiesGen();
+  static const $AssetsShadersGen shaders = $AssetsShadersGen();
 }

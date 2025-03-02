@@ -1,6 +1,9 @@
 // checkbox
 export 'checkbox/gp_checkbox.dart';
 export 'checkbox/gp_checkbox_theme_data.dart';
+// constants
+export 'constants/gp_edge_insets.dart';
+export 'constants/gp_spacings.dart';
 // buttons
 export 'elevated_button/gp_elevated_button.dart';
 export 'elevated_button/gp_elevated_button_theme_data.dart';
