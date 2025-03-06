@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-extension type const GymDailyEdgeInsets(EdgeInsets _) implements EdgeInsets {
-  const GymDailyEdgeInsets.bodyInsets()
+extension type const GymPilotEdgeInsets(EdgeInsets _) implements EdgeInsets {
+  const GymPilotEdgeInsets.bodyInsets()
       : this(
           const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         );
 
-  const GymDailyEdgeInsets.horizontalInsets()
+  const GymPilotEdgeInsets.horizontalInsets()
       : this(
           const EdgeInsets.symmetric(horizontal: 24),
         );

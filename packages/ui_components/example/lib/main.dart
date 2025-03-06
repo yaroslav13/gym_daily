@@ -1,4 +1,6 @@
+import 'package:example/components/kits/kits_example.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_components/ui_components.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,10 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'UiComponents Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: const GPTheme.light().data,
       home: const MyHomePage(title: 'UiComponents Demo'),
     );
   }
@@ -34,8 +33,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final _destinations = const <Widget>[
-    // TODO(masalyga): replace with your component demo page
-    SizedBox(),
+    KitsExample(),
   ];
 
   @override

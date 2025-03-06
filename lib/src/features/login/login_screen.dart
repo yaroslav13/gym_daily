@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gym_daily/src/exceptions/authentication_exception.dart';
-import 'package:gym_daily/src/features/common/constants/gym_daily_edge_insets.dart';
+import 'package:gym_daily/src/features/common/constants/gym_pilot_edge_insets.dart';
 import 'package:gym_daily/src/features/common/hooks/use_async_error_toast.dart';
 import 'package:gym_daily/src/providers/login/login_form_state_provider.dart';
 import 'package:gym_daily/src/resources/assets.gen.dart';
@@ -47,7 +47,7 @@ final class LoginScreen extends HookConsumerWidget {
       body: SafeArea(
         child: Form(
           child: Padding(
-            padding: const GymDailyEdgeInsets.bodyInsets(),
+            padding: const GymPilotEdgeInsets.bodyInsets(),
             child: Column(
               spacing: 20,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +56,7 @@ final class LoginScreen extends HookConsumerWidget {
                 Expanded(
                   flex: 2,
                   child: Padding(
-                    padding: const GymDailyEdgeInsets.horizontalInsets(),
+                    padding: const GymPilotEdgeInsets.horizontalInsets(),
                     child: SvgPicture.asset(Assets.images.dumbbell),
                   ),
                 ),

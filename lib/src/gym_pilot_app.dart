@@ -5,10 +5,10 @@ import 'package:gym_daily/src/providers/theme/theme_provider.dart';
 import 'package:gym_daily/src/resources/translations.g.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-/// The [GymDailyApp] is root widget of app.
-final class GymDailyApp extends HookConsumerWidget {
-  /// Creates an instance of [GymDailyApp]
-  const GymDailyApp({super.key});
+/// The [GymPilotApp] is root widget of app.
+final class GymPilotApp extends HookConsumerWidget {
+  /// Creates an instance of [GymPilotApp]
+  const GymPilotApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
