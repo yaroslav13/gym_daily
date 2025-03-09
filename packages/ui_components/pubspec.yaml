@@ -1,0 +1,15 @@
+name: ui_components
+description: "Ui Components"
+version: 0.0.1
+homepage: none
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  custom_lint: 0.7.0
+  very_good_analysis: 7.0.0
