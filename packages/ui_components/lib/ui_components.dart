@@ -4,6 +4,9 @@ export 'checkbox/gp_checkbox_theme_data.dart';
 // constants
 export 'constants/gp_edge_insets.dart';
 export 'constants/gp_spacings.dart';
+//circular_selector
+export 'circular_selector/circular_selector.dart';
+export 'circular_selector/circular_selector_theme_data.dart';
 // buttons
 export 'elevated_button/gp_elevated_button.dart';
 export 'elevated_button/gp_elevated_button_theme_data.dart';
