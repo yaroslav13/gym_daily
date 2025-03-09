@@ -1,0 +1,21 @@
+name: example
+description: "Example of Ui Components"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: 1.0.8
+  ui_components:
+    path: ../
+
+  custom_lint: 0.7.0
+  very_good_analysis: 7.0.0
+
+flutter:
+  uses-material-design: true
