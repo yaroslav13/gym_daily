@@ -7,7 +7,7 @@ class ProgressArcPainter extends CustomPainter {
     required this.totalValues,
     required this.initialValueIndex,
     required this.currentValueIndex,
-    this.strokeWidth = 30.0,
+    required this.strokeWidth,
     this.gradientFactory,
   });
 

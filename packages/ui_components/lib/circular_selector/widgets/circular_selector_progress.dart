@@ -23,6 +23,7 @@ class CircularSelectorProgress extends StatelessWidget {
         dimension: theme.valueZoneDimension,
         child: CustomPaint(
           painter: ProgressArcPainter(
+            strokeWidth: theme.progressStrokeWidth,
             gradientFactory: theme.progressGradientFactory,
             totalValues: totalValues,
             initialValueIndex: initialValueIndex,

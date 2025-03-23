@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const _defaultDimension = 300.0;
+const _defaultProgressStrokeWidth = 30.0;
 
 final class CircularSelectorThemeData
     extends ThemeExtension<CircularSelectorThemeData> {
@@ -17,8 +18,10 @@ final class CircularSelectorThemeData
     this.centerBoxShadow,
     this.controlForegroundColor,
     this.controlForegroundGradient,
+    this.progressStrokeWidth = _defaultProgressStrokeWidth,
     this.progressGradientFactory,
     this.dimension = _defaultDimension,
+    this.valueBuilderTextStyle,
   });
 
   factory CircularSelectorThemeData.darkThemeData(BuildContext context) =>
@@ -108,6 +111,11 @@ final class CircularSelectorThemeData
             start,
           ),
         ),
+        valueBuilderTextStyle: TextStyle(
+          fontSize: 32,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
       );
 
   final Color? slideSurfaceColor;
@@ -125,6 +133,8 @@ final class CircularSelectorThemeData
   final Gradient? centerBackgroundGradient;
   final List<BoxShadow>? centerBoxShadow;
   final double dimension;
+  final TextStyle? valueBuilderTextStyle;
+  final double progressStrokeWidth;
 
   double get slideZoneDimension => dimension * 0.3;
 
@@ -157,6 +167,8 @@ final class CircularSelectorThemeData
     Gradient? controlForegroundGradient,
     Gradient Function(double, double)? progressGradientFactory,
     double? dimension,
+    double? progressStrokeWidth,
+    TextStyle? valueBuilderTextStyle,
   }) {
     return CircularSelectorThemeData(
       slideSurfaceColor: slideSurfaceColor ?? this.slideSurfaceColor,
@@ -181,6 +193,9 @@ final class CircularSelectorThemeData
       progressGradientFactory:
           progressGradientFactory ?? this.progressGradientFactory,
       dimension: dimension ?? this.dimension,
+      progressStrokeWidth: progressStrokeWidth ?? this.progressStrokeWidth,
+      valueBuilderTextStyle:
+          valueBuilderTextStyle ?? this.valueBuilderTextStyle,
     );
   }
 
@@ -281,6 +296,7 @@ final class CircularSelectorThemeData
       // For progress gradient factory, direct assignment might not make sense
       progressGradientFactory:
           t < 0.5 ? progressGradientFactory : other.progressGradientFactory,
+
     );
   }
 }

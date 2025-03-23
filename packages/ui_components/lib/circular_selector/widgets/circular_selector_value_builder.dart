@@ -29,11 +29,7 @@ class CircularSelectorValueBuilder<T> extends StatelessWidget {
             child: currentItemWidget ??
                 Text(
                   currentItem.toString(),
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
+                  style: theme.valueBuilderTextStyle,
                 ),
           ),
         ),
