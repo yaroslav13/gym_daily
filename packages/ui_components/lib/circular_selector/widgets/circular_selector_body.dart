@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_components/circular_selector/circular_selector_theme_data.dart';
+import 'package:ui_components/circular_selector/theme/circular_selector_theme_data.dart';
 import 'package:ui_components/circular_selector/widgets/circular_selector_control.dart';
 import 'package:ui_components/circular_selector/widgets/circular_selector_progress.dart';
 import 'package:ui_components/circular_selector/widgets/circular_selector_value_builder.dart';

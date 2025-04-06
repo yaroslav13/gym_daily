@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ui_components/theme/typography/gp_theme_text_styles_extension.dart';
+import 'package:ui_components/circular_selector/theme/circular_selector_colors.dart';
+import 'package:ui_components/theme/colors/gp_theme_colors_extension.dart';
+import 'package:ui_components/theme/extensions.dart';
+import 'package:ui_components/theme/theme_shortcuts_extension.dart';
+import 'package:ui_components/theme/typography/gp_theme_text_styles.dart';
 
 const _defaultDimension = 300.0;
 const _defaultProgressStrokeWidth = 30.0;
@@ -25,8 +29,34 @@ final class CircularSelectorThemeData
     this.valueBuilderTextStyle,
   });
 
-  factory CircularSelectorThemeData.darkThemeData(BuildContext context) =>
-      CircularSelectorThemeData.lightThemeData(context).copyWith(
+  factory CircularSelectorThemeData.fromColors(
+    CircularSelectorColors colors, {
+    double dimension = _defaultDimension,
+  }) {
+    return CircularSelectorThemeData(
+      controlBackgroundColor: colors.background,
+      controlForegroundColor: colors.primary,
+      controlForegroundGradient: LinearGradient(
+        colors: [colors.primary, colors.secondary],
+      ),
+      progressGradientFactory: (start, end) => SweepGradient(
+        startAngle: start,
+        endAngle: end,
+        colors: [colors.primary, colors.secondary],
+        transform: GradientRotation(start),
+      ),
+      valueBuilderTextStyle: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+        color: colors.onBackground,
+      ),
+      dimension: dimension,
+    );
+  }
+
+  factory CircularSelectorThemeData.orangeGreen(BuildContext context) {
+    final selectorTheme = CircularSelectorThemeData.common(context);
+    return selectorTheme.copyWith(
         controlForegroundGradient: LinearGradient(
           begin: Alignment.bottomLeft,
           end: Alignment.topRight,
@@ -47,76 +77,78 @@ final class CircularSelectorThemeData
           transform: GradientRotation(start),
         ),
       );
+  }
 
-  factory CircularSelectorThemeData.lightThemeData(BuildContext context) {
-    final themeTextStyles = context.themeTextStyles;
-    //final themeTextStyles =  Theme.of(context).textTheme;
+  factory CircularSelectorThemeData.common(BuildContext context) {
+    final colors = context.themeColors;
+    final textStyles = context.themeExtension<GPThemeTextStyles>();
+    final colorScheme = Theme.of(context).colorScheme;
 
-    final valueBuilderTextStyle = themeTextStyles.headlineLarge;
     return CircularSelectorThemeData(
+      controlBackgroundColor: colors.surface,
+      controlForegroundColor: colors.brand,
+      controlForegroundGradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          colors.brand.applyOpacity(0.7),
+          colors.brand,
+        ],
+        stops: const [0.3, 1.0],
+      ),
+      progressGradientFactory: (start, end) => SweepGradient(
+        startAngle: start,
+        endAngle: end,
+        colors: [
+          colors.supportive,
+          colors.brand,
+        ],
+        stops: const [0.3, 1.0],
+        transform: GradientRotation(start),
+      ),
+      controlBoxShadow: [
+        BoxShadow(
+          color: colors.onSurfaceVariant.applyOpacity(0.45),
+          blurRadius: 5,
+        ),
+      ],
+      centerBackgroundGradient: LinearGradient(
+        begin: Alignment.bottomRight,
+        end: Alignment.topLeft,
+        colors: [
+          colorScheme.surfaceContainerHighest,
+          colorScheme.surface,
+        ],
+      ),
+      centerBoxShadow: [
+        BoxShadow(
+          offset: const Offset(14, 14),
+          color: colors.onSurfaceVariant.applyOpacity(0.45),
+          blurRadius: 28,
+        ),
+      ],
+      controlBorder: Border.all(
+        color: colors.onSurfaceVariant,
+        width: 0.5,
+      ),
       slideSurfaceBoxShadow: [
         BoxShadow(
-          color: Colors.black.withAlpha((255.0 * 0.8).round()),
+          color: Colors.black.applyOpacity(0.8),
           blurRadius: 10,
           spreadRadius: 1,
           offset: const Offset(-3, -3),
         ),
         BoxShadow(
-          color: Colors.white.withAlpha((255.0 * 0.8).round()),
+          color: Colors.white.applyOpacity(0.8),
           blurRadius: 10,
           spreadRadius: 1,
           offset: const Offset(3, 3),
         ),
       ],
-      controlBackgroundColor: Color(0xFFE9E9E9),
-      controlForegroundColor: Theme.of(context).colorScheme.primary,
-      controlForegroundGradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        stops: const [0.3, 5.0],
-        colors: [
-          Color(0xFF0000FF),
-          Color(0xFF000099),
-        ],
+      valueBuilderTextStyle: textStyles?.titleLarge.copyWith(
+        color: colors.onSurface,
+        fontWeight: FontWeight.bold,
       ),
-      centerBackgroundGradient: LinearGradient(
-        begin: Alignment.bottomRight,
-        end: Alignment.topLeft,
-        colors: [
-          Color(0xFFDBCECE),
-          Color(0xFFEFEFEF),
-        ],
-      ),
-      centerBoxShadow: [
-        BoxShadow(
-          offset: Offset(14, 14),
-          color: Color(0x73404040),
-          blurRadius: 28,
-        ),
-      ],
-      controlBorder: Border.all(
-        color: Theme.of(context).colorScheme.surface,
-        width: 0.5,
-      ),
-      controlBoxShadow: [
-        BoxShadow(
-          color: Color(0x73404040),
-          blurRadius: 5,
-        ),
-      ],
-      progressGradientFactory: (start, end) => SweepGradient(
-        startAngle: start,
-        endAngle: end,
-        stops: const [0.5, 5.0],
-        colors: [
-          Color(0xFF00C853),
-          Color(0xFF0000FF),
-        ],
-        transform: GradientRotation(
-          start,
-        ),
-      ),
-      valueBuilderTextStyle: valueBuilderTextStyle,
     );
   }
 
@@ -145,12 +177,8 @@ final class CircularSelectorThemeData
   double get valueZoneDimension => dimension - slideZoneDimension;
 
   static CircularSelectorThemeData of(BuildContext context) {
-    final brightness = Theme.of(context).brightness;
-
     return Theme.of(context).extension<CircularSelectorThemeData>() ??
-        (brightness == Brightness.light
-            ? CircularSelectorThemeData.lightThemeData(context)
-            : CircularSelectorThemeData.darkThemeData(context));
+        CircularSelectorThemeData.common(context);
   }
 
   @override

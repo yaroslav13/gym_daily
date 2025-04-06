@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ui_components/circular_selector/circular_selector_theme_data.dart';
+import 'package:ui_components/circular_selector/theme/circular_selector_theme_data.dart';
 import 'package:ui_components/circular_selector/widgets/circular_selector_body.dart';
 
 class CircularValueSelector<T> extends StatefulWidget {

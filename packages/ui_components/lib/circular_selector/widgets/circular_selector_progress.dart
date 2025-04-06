@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_components/circular_selector/circular_selector_theme_data.dart';
 import 'package:ui_components/circular_selector/progress_arc_painter.dart';
+import 'package:ui_components/circular_selector/theme/circular_selector_theme_data.dart';
 
 class CircularSelectorProgress extends StatelessWidget {
   const CircularSelectorProgress({
