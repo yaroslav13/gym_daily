@@ -7,5 +7,5 @@ extension ThemeShortcutsX on BuildContext {
 
   ColorScheme get materialColorScheme => theme.colorScheme;
 
-  TextTheme get materialTextTheme => theme.textTheme;
+  TextTheme get materialTextTheme => TextTheme.of(this);
 }

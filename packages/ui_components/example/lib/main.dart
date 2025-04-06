@@ -1,3 +1,4 @@
+import 'package:example/components/circular_selector_demo.dart';
 import 'package:example/components/kits/kits_example.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_components/ui_components.dart';
@@ -34,6 +35,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final _destinations = const <Widget>[
     KitsExample(),
+    CircularSelectorDemo(),
   ];
 
   @override
