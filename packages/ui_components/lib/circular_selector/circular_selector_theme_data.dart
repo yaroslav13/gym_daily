@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_components/theme/typography/gp_theme_text_styles_extension.dart';
 
 const _defaultDimension = 300.0;
 const _defaultProgressStrokeWidth = 30.0;
@@ -47,76 +48,77 @@ final class CircularSelectorThemeData
         ),
       );
 
-  factory CircularSelectorThemeData.lightThemeData(BuildContext context) =>
-      CircularSelectorThemeData(
-        slideSurfaceBoxShadow: [
-          BoxShadow(
-            color: Colors.black.withAlpha((255.0 * 0.8).round()),
-            blurRadius: 10,
-            spreadRadius: 1,
-            offset: const Offset(-3, -3),
-          ),
-          BoxShadow(
-            color: Colors.white.withAlpha((255.0 * 0.8).round()),
-            blurRadius: 10,
-            spreadRadius: 1,
-            offset: const Offset(3, 3),
-          ),
+  factory CircularSelectorThemeData.lightThemeData(BuildContext context) {
+    final themeTextStyles = context.themeTextStyles;
+    //final themeTextStyles =  Theme.of(context).textTheme;
+
+    final valueBuilderTextStyle = themeTextStyles.headlineLarge;
+    return CircularSelectorThemeData(
+      slideSurfaceBoxShadow: [
+        BoxShadow(
+          color: Colors.black.withAlpha((255.0 * 0.8).round()),
+          blurRadius: 10,
+          spreadRadius: 1,
+          offset: const Offset(-3, -3),
+        ),
+        BoxShadow(
+          color: Colors.white.withAlpha((255.0 * 0.8).round()),
+          blurRadius: 10,
+          spreadRadius: 1,
+          offset: const Offset(3, 3),
+        ),
+      ],
+      controlBackgroundColor: Color(0xFFE9E9E9),
+      controlForegroundColor: Theme.of(context).colorScheme.primary,
+      controlForegroundGradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        stops: const [0.3, 5.0],
+        colors: [
+          Color(0xFF0000FF),
+          Color(0xFF000099),
         ],
-        controlBackgroundColor: Color(0xFFE9E9E9),
-        controlForegroundColor: Theme.of(context).colorScheme.primary,
-        controlForegroundGradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          stops: const [0.3, 5.0],
-          colors: [
-            Color(0xFF0000FF),
-            Color(0xFF000099),
-          ],
-        ),
-        centerBackgroundGradient: LinearGradient(
-          begin: Alignment.bottomRight,
-          end: Alignment.topLeft,
-          colors: [
-            Color(0xFFDBCECE),
-            Color(0xFFEFEFEF),
-          ],
-        ),
-        centerBoxShadow: [
-          BoxShadow(
-            offset: Offset(14, 14),
-            color: Color(0x73404040),
-            blurRadius: 28,
-          ),
+      ),
+      centerBackgroundGradient: LinearGradient(
+        begin: Alignment.bottomRight,
+        end: Alignment.topLeft,
+        colors: [
+          Color(0xFFDBCECE),
+          Color(0xFFEFEFEF),
         ],
-        controlBorder: Border.all(
-          color: Theme.of(context).colorScheme.surface,
-          width: 0.5,
+      ),
+      centerBoxShadow: [
+        BoxShadow(
+          offset: Offset(14, 14),
+          color: Color(0x73404040),
+          blurRadius: 28,
         ),
-        controlBoxShadow: [
-          BoxShadow(
-            color: Color(0x73404040),
-            blurRadius: 5,
-          ),
+      ],
+      controlBorder: Border.all(
+        color: Theme.of(context).colorScheme.surface,
+        width: 0.5,
+      ),
+      controlBoxShadow: [
+        BoxShadow(
+          color: Color(0x73404040),
+          blurRadius: 5,
+        ),
+      ],
+      progressGradientFactory: (start, end) => SweepGradient(
+        startAngle: start,
+        endAngle: end,
+        stops: const [0.5, 5.0],
+        colors: [
+          Color(0xFF00C853),
+          Color(0xFF0000FF),
         ],
-        progressGradientFactory: (start, end) => SweepGradient(
-          startAngle: start,
-          endAngle: end,
-          stops: const [0.5, 5.0],
-          colors: [
-            Color(0xFF00C853),
-            Color(0xFF0000FF),
-          ],
-          transform: GradientRotation(
-            start,
-          ),
+        transform: GradientRotation(
+          start,
         ),
-        valueBuilderTextStyle: TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-      );
+      ),
+      valueBuilderTextStyle: valueBuilderTextStyle,
+    );
+  }
 
   final Color? slideSurfaceColor;
   final Gradient? slideSurfaceGradient;
@@ -296,7 +298,6 @@ final class CircularSelectorThemeData
       // For progress gradient factory, direct assignment might not make sense
       progressGradientFactory:
           t < 0.5 ? progressGradientFactory : other.progressGradientFactory,
-
     );
   }
 }

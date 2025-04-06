@@ -31,8 +31,12 @@ final class GPThemeTextStyles extends ThemeExtension<GPThemeTextStyles> {
   }
 
   factory GPThemeTextStyles.of(BuildContext context) {
-    return context.themeExtension<GPThemeTextStyles>() ??
-        GPThemeTextStyles.fromTextTheme(context.materialTextTheme);
+    final textTheme = context.materialTextTheme;
+    final extension = context.themeExtension<GPThemeTextStyles>();
+    if (extension != null) {
+      return extension;
+    }
+    return GPThemeTextStyles.fromTextTheme(textTheme);
   }
 
   const GPThemeTextStyles._({
